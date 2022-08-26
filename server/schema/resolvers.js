@@ -15,8 +15,9 @@ const resolvers = {
     },
 
     Mutation: {
-        createMatchup: async (parent, { tech1, tech2 }) =>{
-            return Matchup.create(tech1, tech2);
+        createMatchup: async (parent, args) =>{
+            console.log(args)
+            return Matchup.create(args);
         },
         createVote: async (parent, { matchupId, techNum}) =>{
             return Matchup.findOneAndUpdate(
@@ -26,6 +27,6 @@ const resolvers = {
             )
         }
     }
-};
+};          
 
 module.exports = resolvers
